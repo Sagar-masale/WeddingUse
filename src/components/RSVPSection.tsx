@@ -9,7 +9,7 @@ const photos = [
   require("@/assets/Photos/WhatsApp Image 2026-01-25 at 10.47.37 PM.jpeg"),
 ];
 
-const WEDDING_DATE = new Date("2026-02-22T12:12:00");
+const WEDDING_DATE = new Date("2026-04-21T12:12:00");
 
 function getTimeLeft() {
   const now = new Date();
