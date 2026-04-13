@@ -1,43 +1,3 @@
-async function sendEmailNotification(guestName, guestMessage) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.WEDDING_EMAIL_FROM;
-  const toEmail = process.env.WEDDING_EMAIL_TO;
-
-  if (!apiKey || !fromEmail || !toEmail) {
-    console.warn(
-      "Email skipped: missing configuration (RESEND_API_KEY, WEDDING_EMAIL_FROM, WEDDING_EMAIL_TO)"
-    );
-    return false;
-  }
-
-  try {
-    const { Resend } = require("resend");
-    const resend = new Resend(apiKey);
-
-    const subject = `New wedding message from ${guestName}`;
-    const html = `
-      <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
-        <h2 style="margin: 0 0 12px;">New Guest Message</h2>
-        <p><strong>Name:</strong> ${guestName}</p>
-        <p><strong>Message:</strong></p>
-        <p style="white-space: pre-line;">${guestMessage}</p>
-      </div>
-    `;
-
-    await resend.emails.send({
-      from: fromEmail,
-      to: toEmail,
-      subject,
-      html,
-    });
-
-    return true;
-  } catch (error) {
-    console.error("Email send failed:", error);
-    return false;
-  }
-}
-
 const handler = async (event) => {
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -113,12 +73,6 @@ const handler = async (event) => {
     );
 
     const newMessageId = insertResult.rows[0].id;
-    const createdAt = insertResult.rows[0].created_at;
-
-    const emailSent = await sendEmailNotification(
-      name.trim(),
-      message.trim()
-    );
 
     await client.end();
 
@@ -129,7 +83,6 @@ const handler = async (event) => {
         success: true,
         message: "Message submitted successfully",
         id: newMessageId.toString(),
-        emailSent,
       }),
     };
   } catch (error) {
