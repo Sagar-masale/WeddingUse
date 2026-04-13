@@ -86,17 +86,17 @@ const handler = async (event) => {
       }),
     };
   } catch (error) {
-    console.error("Error submitting message:", error);
+  console.error("Error submitting message:", error);
 
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({
-        error: "Failed to submit message",
-        success: false,
-      }),
-    };
-  }
+  return {
+    statusCode: 500,
+    headers,
+    body: JSON.stringify({
+      error: error.message,  
+      success: false,
+    }),
+  };
+}
 };
 
 module.exports = { handler };
