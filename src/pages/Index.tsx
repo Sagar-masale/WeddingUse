@@ -5,7 +5,7 @@ import VenueSection from "@/components/VenueSection";
 import Footer from "@/components/Footer";
 import PhotoGallery from "@/components/PhotoGallery";
 import AudioPlayer from "@/components/AudioPlayer";
-import GuestMessages from "@/components/GuestMessages";
+
 
 const Index = () => {
   return (
@@ -16,7 +16,7 @@ const Index = () => {
       <EventsTimeline />
       <VenueSection />
       <PhotoGallery />
-      <GuestMessages />
+   
       <Footer />
     </main>
   );
