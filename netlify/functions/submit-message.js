@@ -1,22 +1,17 @@
-import { Handler } from '@netlify/functions';
-
-interface RequestBody {
-  name: string;
-  message: string;
-}
-
-async function sendEmailNotification(guestName: string, guestMessage: string): Promise<boolean> {
+async function sendEmailNotification(guestName, guestMessage) {
   const apiKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.WEDDING_EMAIL_FROM;
   const toEmail = process.env.WEDDING_EMAIL_TO;
 
   if (!apiKey || !fromEmail || !toEmail) {
-    console.warn('Email skipped: missing configuration (RESEND_API_KEY, WEDDING_EMAIL_FROM, WEDDING_EMAIL_TO)');
+    console.warn(
+      "Email skipped: missing configuration (RESEND_API_KEY, WEDDING_EMAIL_FROM, WEDDING_EMAIL_TO)"
+    );
     return false;
   }
 
   try {
-    const { Resend } = require('resend');
+    const { Resend } = require("resend");
     const resend = new Resend(apiKey);
 
     const subject = `New wedding message from ${guestName}`;
@@ -38,55 +33,54 @@ async function sendEmailNotification(guestName: string, guestMessage: string): P
 
     return true;
   } catch (error) {
-    console.error('Email send failed:', error);
+    console.error("Email send failed:", error);
     return false;
   }
 }
 
-const handler: Handler = async (event) => {
-  // Set CORS headers
+const handler = async (event) => {
   const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Content-Type': 'application/json',
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Content-Type": "application/json",
   };
 
-  // Handle preflight OPTIONS request
-  if (event.httpMethod === 'OPTIONS') {
+  // OPTIONS request
+  if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
       headers,
-      body: '',
+      body: "",
     };
   }
 
-  if (event.httpMethod !== 'POST') {
+  // Only POST allowed
+  if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
       headers,
-      body: JSON.stringify({ error: 'Method not allowed' }),
+      body: JSON.stringify({ error: "Method not allowed" }),
     };
   }
 
   try {
-    // Parse request body
     if (!event.body) {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ error: 'Request body is required' }),
+        body: JSON.stringify({ error: "Request body is required" }),
       };
     }
 
-    const { name, message }: RequestBody = JSON.parse(event.body);
+    const { name, message } = JSON.parse(event.body);
 
-    // Validate input
+    // Validation
     if (!name || !message) {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ error: 'Name and message are required' }),
+        body: JSON.stringify({ error: "Name and message are required" }),
       };
     }
 
@@ -94,36 +88,37 @@ const handler: Handler = async (event) => {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ error: 'Name or message too long' }),
+        body: JSON.stringify({ error: "Name or message too long" }),
       };
     }
 
-    // Get database connection
     const databaseUrl = process.env.NETLIFY_DATABASE_URL;
-    
+
     if (!databaseUrl) {
       return {
         statusCode: 500,
         headers,
-        body: JSON.stringify({ error: 'Database configuration missing' }),
+        body: JSON.stringify({ error: "Database configuration missing" }),
       };
     }
 
-    const { Client } = require('pg');
+    const { Client } = require("pg");
     const client = new Client({ connectionString: databaseUrl });
-    
+
     await client.connect();
 
-    // Insert new message into database (only name and message columns)
     const insertResult = await client.query(
-      'INSERT INTO guest_messages (name, message) VALUES ($1, $2) RETURNING id, created_at',
+      "INSERT INTO guest_messages (name, message) VALUES ($1, $2) RETURNING id, created_at",
       [name.trim(), message.trim()]
     );
 
     const newMessageId = insertResult.rows[0].id;
     const createdAt = insertResult.rows[0].created_at;
 
-    const emailSent = await sendEmailNotification(name.trim(), message.trim());
+    const emailSent = await sendEmailNotification(
+      name.trim(),
+      message.trim()
+    );
 
     await client.end();
 
@@ -132,22 +127,23 @@ const handler: Handler = async (event) => {
       headers,
       body: JSON.stringify({
         success: true,
-        message: 'Message submitted successfully',
+        message: "Message submitted successfully",
         id: newMessageId.toString(),
         emailSent,
       }),
     };
   } catch (error) {
-    console.error('Error submitting message:', error);
+    console.error("Error submitting message:", error);
+
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ 
-        error: 'Failed to submit message',
-        success: false 
+      body: JSON.stringify({
+        error: "Failed to submit message",
+        success: false,
       }),
     };
   }
 };
 
-export { handler };
+module.exports = { handler };
