@@ -4,14 +4,5 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",
-  test: {
-    environment: "jsdom",
-    globals: true,
-    setupFiles: ["./src/test/setup.ts"],
-    include: ["src/**/*.{test,spec}.{ts,tsx}"],
-  },
-  resolve: {
-    alias: { "@": path.resolve(__dirname, "./src") },
-  },
-});
+  base: "/",   // ❌ /Wedding/ हटाओ, सिर्फ "/" रखो
+})
