@@ -1,0 +1,22 @@
+[build]
+  functions = "netlify/functions"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Omit documentation files from secrets scanning (they contain example/placeholder values)
+  SECRETS_SCAN_OMIT_PATHS = "DEPLOYMENT_CHECKLIST.md,GUEST_MESSAGES_README.md"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[functions]
+  directory = "netlify/functions/"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 8080
+  port = 8888
+  functions = "netlify/functions"
