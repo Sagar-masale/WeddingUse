@@ -1,20 +1,31 @@
 import { motion } from "framer-motion";
 import coupleVideo from "@/assets/design.mp4";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
+
+  const videoRef = useRef(null);
+
+useEffect(() => {
+  if (videoRef.current) {
+    videoRef.current.playbackRate = 0.3; // 👈 slow (1 = normal)
+  }
+}, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover will-change-transform"
-      >
-        <source src={coupleVideo} type="video/mp4" />
-      </video>
+   <video
+  ref={videoRef}
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="auto"
+  className="absolute inset-0 w-full h-full object-cover will-change-transform animate-zoom"
+>
+  <source src={coupleVideo} type="video/mp4" />
+</video>
 
       {/* Overlay */}
       <div

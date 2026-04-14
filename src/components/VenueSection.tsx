@@ -64,7 +64,7 @@ const VenueSection = () => {
           </div>
 
           <motion.a
-            href="https://www.google.com/maps/dir/17.6685056,75.9365632/Hingulambika+Sanskrutik+Bhavan,+MWG7%2BW32,+Ganesh+Peth,+Shaniwar+Peth,+Solapur,+Maharashtra+413005/@17.6724268,75.9140356,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bc5da62a409a2c7:0x8268b87ab5cb4543!2m2!1d75.9126396!2d17.6772592?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
+            href="https://maps.app.goo.gl/Uc4VteDXY7duAYgP8"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0 }}

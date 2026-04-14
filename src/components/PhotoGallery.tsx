@@ -91,7 +91,7 @@ const PhotoGallery = () => {
           {/* Main Image Container */}
           <div className="relative overflow-hidden rounded-lg gold-border aspect-[4/3] bg-muted">
             <AnimatePresence initial={false}>
-              <motion.img
+             <motion.img
                 key={currentIndex}
                 src={galleryImages[currentIndex].src}
                 alt={galleryImages[currentIndex].caption}
@@ -99,7 +99,7 @@ const PhotoGallery = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="absolute inset-0 w-full h-full object-cover will-change-[opacity] transform-gpu"
+                className="absolute inset-0 w-full h-full object-cover object-top"
               />
             </AnimatePresence>
 
@@ -165,7 +165,7 @@ const PhotoGallery = () => {
                 <img
                   src={image.src}
                   alt={`Thumbnail ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain"
                   loading="lazy"
                 />
               </button>
