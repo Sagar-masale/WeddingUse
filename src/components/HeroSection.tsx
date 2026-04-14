@@ -94,11 +94,12 @@ useEffect(() => {
       </div>
 
       {/* Scroll indicator - moved lower below the content */}
-  <motion.div
+<motion.div
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 1.2 }}
-  className="absolute left-1/2 -translate-x-1/2 bottom-6 flex flex-col items-center"
+  // 'w-full' जोड़ें और 'items-center' सुनिश्चित करें
+  className="absolute bottom-6 left-0 w-full flex flex-col items-center justify-center pointer-events-none"
 >
   {/* Mouse Shape */}
   <div className="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center items-start p-1">
@@ -112,7 +113,7 @@ useEffect(() => {
   </div>
 
   {/* Optional Text */}
-  <p className="text-xs text-gray-400 mt-2 tracking-widest">
+  <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">
     Scroll
   </p>
 </motion.div>
