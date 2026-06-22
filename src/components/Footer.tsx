@@ -19,10 +19,10 @@ const Footer = () => {
           </div>
 
           <h3 className="font-display text-2xl md:text-3xl text-cream mb-2">
-            Vinayak & Shraddha
+            Rohan & Ambika
           </h3>
           <p className="font-body text-lg text-gold italic mb-6">
-            #VinayakWedsShraddha
+            #RohanWedsAmbika
           </p>
 
           <p className="font-body text-cream/70 mb-4">
@@ -31,7 +31,7 @@ const Footer = () => {
 
           <div className="flex items-center justify-center gap-4 text-cream/60">
             <span className="font-body text-sm">
-              21st April 2026 • Solapur, Maharashtra
+              27th June 2026 (Saturday) • Solapur, Maharashtra
             </span>
           </div>
 

@@ -50,7 +50,7 @@ const SlideshowSection = () => {
           className="text-center mb-8 transform-gpu"
         >
           <h2 className="font-display text-3xl md:text-4xl text-primary mb-4">
-            Vinayak & Shraddha
+            Rohan & Ambika
           </h2>
           <div className="ornate-divider">
             <span className="text-gold text-2xl">♥</span>

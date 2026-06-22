@@ -32,11 +32,11 @@ const CoupleSection = () => {
             className="flex-1 text-center lg:text-left transform-gpu"
           >
             <h3 className="font-display text-2xl md:text-3xl text-primary mb-2">
-              Vinayak Uttarkar
+              Rohan Saravde
             </h3>
             <p className="font-body text-gold text-lg italic mb-4">The Groom</p>
             <p className="font-body text-muted-foreground leading-relaxed max-w-sm mx-auto lg:mr-auto lg:ml-0">
-              ​The son of Mr. & Mrs. Uttarkar, Vinayak is an ambitious and kind-hearted man who leads with integrity. Driven by his goals but grounded by his heart, he stands ready to embark on life’s greatest adventure alongside his bride.
+             The beloved son of Mr. Sanjay Vijaykumar Saravde and Mrs. Saravde, Rohan is a sincere, hardworking, and family-oriented gentleman. Known for his warm nature and strong values, he brings joy to those around him. As he begins this beautiful new chapter of life, he looks forward to building a future filled with love, happiness, and togetherness alongside his bride.
             </p>
           </motion.div>
 
@@ -71,11 +71,11 @@ const CoupleSection = () => {
             className="flex-1 text-center lg:text-right transform-gpu"
           >
             <h3 className="font-display text-2xl md:text-3xl text-primary mb-2">
-              Shraddha Almel
+              Ambika Bombale
             </h3>
             <p className="font-body text-gold text-lg italic mb-4">The Bride</p>
             <p className="font-body text-muted-foreground leading-relaxed max-w-sm mx-auto lg:ml-auto lg:mr-0">
-              The daughter of Mr. & Mrs. Almel, Shraddha is a woman of innate grace and a vibrant creative spirit. Known for her ability to bring light and warmth into any room, she is the heart of her family and now, the beautiful soulmate to her groom.
+            Ambika Bombale is a kind-hearted, graceful, and family-oriented woman whose warmth and positivity brighten every moment. With a beautiful blend of tradition and modern values, she is ready to begin a wonderful journey of love, companionship, and lifelong happiness with Rohan. ❤️✨
             </p>
           </motion.div>
           

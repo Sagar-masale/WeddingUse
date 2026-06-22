@@ -44,14 +44,14 @@ const VenueSection = () => {
               <div className="w-10 h-10 md:w-16 md:h-16 rounded-full border-2 border-gold flex items-center justify-center mb-2 md:mb-4">
                 <Calendar className="w-5 h-5 md:w-7 md:h-7 text-gold" />
               </div>
-              <p className="font-display text-xs md:text-xl text-cream">21st April 2026</p>
-              <p className="font-body text-[10px] md:text-base text-cream/70">Tuesday </p>
+              <p className="font-display text-xs md:text-xl text-cream">27th June 2026</p>
+              <p className="font-body text-[10px] md:text-base text-cream/70">Saturday </p>
             </div>
             <div className="flex flex-col items-center min-w-[90px]">
               <div className="w-10 h-10 md:w-16 md:h-16 rounded-full border-2 border-gold flex items-center justify-center mb-2 md:mb-4">
                 <Clock className="w-5 h-5 md:w-7 md:h-7 text-gold" />
               </div>
-              <p className="font-display text-xs md:text-xl text-cream">11:45 AM</p>
+              <p className="font-display text-xs md:text-xl text-cream">12:29 PM</p>
               <p className="font-body text-[10px] md:text-base text-cream/70">Wedding Muhurat</p>
             </div>
             <div className="flex flex-col items-center min-w-[90px]">

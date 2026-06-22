@@ -8,7 +8,7 @@ const HeroSection = () => {
 
 useEffect(() => {
   if (videoRef.current) {
-    videoRef.current.playbackRate = 0.3; // 👈 slow (1 = normal)
+    videoRef.current.playbackRate = 0.5; // 👈 slow (1 = normal)
   }
 }, []);
 
@@ -57,7 +57,7 @@ useEffect(() => {
           className="mb-6"
         >
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-wide text-shadow">
-            Vinayak
+            Rohan 
           </h1>
           <div className="flex items-center justify-center gap-4 my-4">
             <span className="h-px w-12 bg-gold" />
@@ -65,7 +65,7 @@ useEffect(() => {
             <span className="h-px w-12 bg-gold" />
           </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-cream tracking-wide text-shadow">
-            Shraddha
+            Ambika
           </h1>
         </motion.div>
 
@@ -85,7 +85,7 @@ useEffect(() => {
           className="flex flex-col items-center gap-2 transform-gpu"
         >
           <p className="font-display text-2xl md:text-3xl text-gold tracking-wider">
-            21st April 2026
+            27th June 2026
           </p>
           <p className="font-body text-lg text-cream/80">
             Solapur, Maharashtra

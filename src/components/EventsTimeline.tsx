@@ -5,25 +5,25 @@ const events = [
 
     {
     icon: Sparkles,
-    title: "Haldi & Devkarya",
-    date: "20th April 2026",
+    title: "Haldi Ceremony",
+    date: "Friday, 26th June 2026",
     time: "7:00 PM",
-    venue: "Wedding Venue, Solapur",
+    venue: "Hingulambika Sanskrutik Bhavan, Ganesh Peth, Solapur",
     description: "Traditional pre-wedding rituals with family and music.",
   },
  {
     icon: Heart,
     title: "Wedding Ceremony",
-    date: "21st April 2026",
-    time: "11:45 AM",
+    date: "27th June 2026 (Saturday)",
+    time: "12:29 PM",
     venue: "Hingulambika Sanskrutik Bhavan, Ganesh Peth, Solapur",
     description: "The auspicious moment when we begin our new journey together.",
   },
   {
     icon: Coffee, // Aap "Utensils" ya "Grape" icon bhi use kar sakte hain
     title: "Lunch (Priti Bhojan)",
-    date: "21st April 2026",
-    time: "12:00 PM to 3:00 PM",
+    date: "27th June 2026",
+    time: "01:00 PM to 3:00 PM",
     venue: "Wedding Venue, Solapur",
     description: "A delicious meal to celebrate our big day.",
   },
