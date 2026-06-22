@@ -36,7 +36,7 @@ const CoupleSection = () => {
             </h3>
             <p className="font-body text-gold text-lg italic mb-4">The Groom</p>
             <p className="font-body text-muted-foreground leading-relaxed max-w-sm mx-auto lg:mr-auto lg:ml-0">
-             The beloved son of Mr. Sanjay Vijaykumar Saravde and Mrs. Saravde, Rohan is a sincere, hardworking, and family-oriented gentleman. Known for his warm nature and strong values, he brings joy to those around him. As he begins this beautiful new chapter of life, he looks forward to building a future filled with love, happiness, and togetherness alongside his bride.
+              The beloved son of Mr. Sanjay Vijaykumar Saravde and Mrs. Saravde, Rohan is a sincere, hardworking, and family-oriented gentleman. Known for his warm nature and strong values, he brings joy to those around him.✨ As he begins this beautiful new chapter of life, he looks forward to building a future filled with love, happiness, and togetherness alongside his bride. ❤️💍
             </p>
           </motion.div>
 
